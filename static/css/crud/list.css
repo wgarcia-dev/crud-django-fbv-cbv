@@ -1,6 +1,3 @@
-/* Global CRUD list styles - unified from products/css/crud/product_list.css & users/css/crud/user_list.css
-   Mejora alineación, responsive y botones (elimina bordes grises usando vars globales) */
-
 .list-container {
     width: min(1150px, 95%);
     margin: 3rem auto;
@@ -30,7 +27,6 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-/* Tabla genérica - alias para compatibilidad con .users-table y .products-table */
 .crud-table,
 .users-table,
 .products-table {
@@ -75,7 +71,6 @@
     background: #f8fafc;
 }
 
-/* Celdas específicas */
 .avatar-cell,
 .img-cell {
     width: 64px;
@@ -146,7 +141,6 @@
     line-height: 1;
 }
 
-/* Acciones - FIX: td mantiene display:table-cell; flex va en wrapper interno (.actions) */
 .actions-cell {
     white-space: nowrap;
     vertical-align: middle;
@@ -187,7 +181,6 @@
     font-style: italic;
 }
 
-/* Responsive */
 @media (max-width: 640px) {
     .list-header {
         flex-direction: column;

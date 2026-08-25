@@ -13,34 +13,34 @@
 {% endblock extra_styles %}
 
 {% block content %}
-<div class="detail-container">
-    <a href="{% url 'products:product_list' %}" class="back-link">← Volver al listado</a>
+    <div class="detail-container">
+        <a href="{% url 'products:product_list' %}" class="back-link">← Volver al listado</a>
 
-    <div class="detail-card">
-        <div class="detail-image">
-            {% if product.image %}
-                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-            {% else %}
-                <div class="no-image-placeholder">Sin imagen disponible</div>
-            {% endif %}
-        </div>
-
-        <div class="detail-info">
-            <span class="brand-badge">{{ product.brand }}</span>
-            <h1 class="product-title">{{ product.name }}</h1>
-            <p class="product-price">${{ product.price }}</p>
-            <p class="product-stock">Stock disponible: <strong>{{ product.stock }}</strong> unidades</p>
-
-            <div class="product-description">
-                <h3>Descripción</h3>
-                <p>{{ product.description|default:"Sin descripción detallada." }}</p>
+        <div class="detail-card">
+            <div class="detail-image">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                    <div class="no-image-placeholder">Sin imagen disponible</div>
+                {% endif %}
             </div>
 
-            <div class="detail-actions">
-                <a href="{{ product.get_update_url }}" class="btn btn-warning">Editar</a>
-                <a href="{{ product.get_delete_url }}" class="btn btn-danger">Eliminar</a>
+            <div class="detail-info">
+                <span class="brand-badge">{{ product.brand }}</span>
+                <h1 class="product-title">{{ product.name }}</h1>
+                <p class="product-price">${{ product.price }}</p>
+                <p class="product-stock">Stock disponible: <strong>{{ product.stock }}</strong> unidades</p>
+
+                <div class="product-description">
+                    <h3>Descripción</h3>
+                    <p>{{ product.description|default:"Sin descripción detallada." }}</p>
+                </div>
+
+                <div class="detail-actions">
+                    <a href="{{ product.get_update_url }}" class="btn btn-warning">Editar</a>
+                    <a href="{{ product.get_delete_url }}" class="btn btn-danger">Eliminar</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock content %}

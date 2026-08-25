@@ -1,12 +1,12 @@
 {% extends 'users/base/base_crud.html' %}
 {% load static %}
 
-{% block title_pag %}Editar {{ object.username }}{% endblock title_pag %}
+{% block title_pag %}Editar {{ user.username }}{% endblock title_pag %}
 
 {% block favicon %}
     <link rel="icon" href="{% static 'favicons/favicon-update.png' %}">
 {% endblock favicon %}
 
 {% block form_title %}Editar Usuario{% endblock form_title %}
-{% block form_subtitle %}Actualiza el perfil de @{{ object.username }}.{% endblock form_subtitle %}
+{% block form_subtitle %}Actualiza el perfil de @{{ user.username }}.{% endblock form_subtitle %}
 {% block btn_submit_text %}Guardar Cambios{% endblock btn_submit_text %}

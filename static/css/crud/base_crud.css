@@ -1,4 +1,3 @@
-/* Global CRUD form styles - extracted from apps/products & apps/users */
 .form-container {
     width: min(600px, 95%);
     margin: 3rem auto;
@@ -62,7 +61,6 @@
     box-shadow: 0 0 0 3px var(--primary-light);
 }
 
-/* File input - elimina borde gris nativo del botón interno */
 .form-control-file {
     padding: 0;
     overflow: hidden;

@@ -12,22 +12,22 @@
 {% endblock extra_styles %}
 
 {% block content %}
-<div class="delete-container">
-    <div class="delete-card">
-        <header class="delete-header">
-            <h2>¿Confirmar Eliminación?</h2>
-            <p>Esta acción es permanente y no se podrá deshacer.</p>
-        </header>
+    <div class="delete-container">
+        <div class="delete-card">
+            <header class="delete-header">
+                <h2>¿Confirmar Eliminación?</h2>
+                <p>Esta acción es permanente y no se podrá deshacer.</p>
+            </header>
 
-        <div class="delete-info">
-            <p>¿Deseas eliminar definitivamente el producto <strong>"{{ product.name }}"</strong> de la marca <strong>{{ product.brand }}</strong>?</p>
+            <div class="delete-info">
+                <p>¿Deseas eliminar definitivamente el producto <strong>"{{ product.name }}"</strong> de la marca <strong>{{ product.brand }}</strong>?</p>
+            </div>
+
+            <form method="post" class="delete-actions">
+                {% csrf_token %}
+                <a href="{% url 'products:product_list' %}" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
+            </form>
         </div>
-
-        <form method="post" class="delete-actions">
-            {% csrf_token %}
-            <a href="{% url 'products:product_list' %}" class="btn btn-secondary">Cancelar</a>
-            <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
-        </form>
     </div>
-</div>
 {% endblock content %}

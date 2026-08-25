@@ -1,4 +1,3 @@
-/* Global CRUD delete confirmation - extracted from apps/products & apps/users */
 .delete-container {
     width: min(480px, 95%);
     margin: 4rem auto;

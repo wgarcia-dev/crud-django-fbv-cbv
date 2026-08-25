@@ -26,8 +26,10 @@ class UserUpdateView(UpdateView):
     model = User
     form_class = UserForm
     template_name = "users/crud/user_update.html"
+    context_object_name = "user"
 
 class UserDeleteView(DeleteView):
     model = User
     template_name = "users/crud/user_delete.html"
     success_url = reverse_lazy("users:user_list")
+    context_object_name = "user"
