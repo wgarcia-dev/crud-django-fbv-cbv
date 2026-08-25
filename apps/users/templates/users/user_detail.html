@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_pag %}Perfil de {{ user.username }}{% endblock title_pag %}
+
+{% block favicon %}
+    <link rel="icon" href="{% static 'favicons/favicon-detail.png' %}">
+{% endblock favicon %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/crud/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/user_detail.css' %}">
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="detail-container">
+    <a href="{% url 'users:user_list' %}" class="back-link">← Volver a usuarios</a>
+
+    <div class="profile-card">
+        <div class="profile-header">
+            {% if user.photo %}
+                <img src="{{ user.photo.url }}" alt="{{ user.username }}" class="profile-avatar">
+            {% else %}
+                <div class="profile-avatar-placeholder">{{ user.username|first|upper }}</div>
+            {% endif %}
+            <h1 class="profile-name">{{ user.get_full_name|default:user.username }}</h1>
+            <span class="profile-username">@{{ user.username }}</span>
+        </div>
+
+        <div class="profile-body">
+            <div class="info-row">
+                <span class="info-label">Correo electrónico:</span>
+                <span class="info-value">{{ user.email|default:"No registrado" }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Fecha de nacimiento:</span>
+                <span class="info-value">{{ user.birth_date|date:"d/m/Y"|default:"No especificada" }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Fecha de registro:</span>
+                <span class="info-value">{{ user.date_joined|date:"d/m/Y H:i" }}</span>
+            </div>
+        </div>
+
+        <div class="profile-actions">
+            <a href="{{ user.get_update_url }}" class="btn btn-warning">Editar Perfil</a>
+            <a href="{{ user.get_delete_url }}" class="btn btn-danger">Eliminar</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

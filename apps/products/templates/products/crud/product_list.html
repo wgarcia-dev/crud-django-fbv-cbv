@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_pag %}Listado de Productos{% endblock title_pag %}
+
+{% block favicon %}
+    <link rel="icon" href="{% static 'favicons/favicon-list.webp' %}">
+{% endblock favicon %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/crud/list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/includes/paginator.css' %}">
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="list-container">
+    <header class="list-header">
+        <h1>Gestión de Productos (FBV)</h1>
+        <div class="actions">
+            <a href="{% url 'users:user_list' %}" class="btn btn-secondary">👥 Ver Usuarios</a>
+            <a href="{% url 'products:product_create' %}" class="btn btn-primary">+ Nuevo Producto</a>
+        </div>
+    </header>
+
+    <div class="table-responsive">
+        <table class="products-table crud-table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Marca</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td class="img-cell">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                            {% else %}
+                                <span class="no-img">Sin imagen</span>
+                            {% endif %}
+                        </td>
+                        <td class="product-name">{{ product.name }}</td>
+                        <td>{{ product.brand }}</td>
+                        <td>${{ product.price }}</td>
+                        <td><span class="stock-badge">{{ product.stock }}</span></td>
+                        <td class="actions-cell">
+                            <div class="actions">
+                                <a href="{{ product.get_detail_url }}" class="btn btn-info">Ver</a>
+                                <a href="{{ product.get_update_url }}" class="btn btn-warning">Editar</a>
+                                <a href="{{ product.get_delete_url }}" class="btn btn-danger">Eliminar</a>
+                            </div>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="6" class="empty-msg">No hay productos registrados actualmente.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% include "includes/paginator.html" %}
+</div>
+{% endblock content %}

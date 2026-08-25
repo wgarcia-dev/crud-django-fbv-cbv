@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/crud/base_crud.css' %}">
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="form-container">
+    <div class="form-card">
+        <header class="form-header">
+            <h2>{% block form_title %}Formulario de Producto{% endblock form_title %}</h2>
+            <p>{% block form_subtitle %}Completa los datos solicitados{% endblock form_subtitle %}</p>
+        </header>
+
+        <form method="post" enctype="multipart/form-data" class="crud-form">
+            {% csrf_token %}
+            {% block form_fields %}
+                {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                            <span class="form-error">{{ field.errors.0 }}</span>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endblock form_fields %}
+
+            <div class="form-actions">
+                <a href="{% url 'products:product_list' %}" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-primary">{% block btn_submit_text %}Guardar{% endblock %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

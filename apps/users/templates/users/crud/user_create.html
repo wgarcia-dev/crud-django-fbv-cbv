@@ -1,0 +1,12 @@
+{% extends 'users/base/base_crud.html' %}
+{% load static %}
+
+{% block title_pag %}Nuevo Usuario{% endblock title_pag %}
+
+{% block favicon %}
+    <link rel="icon" href="{% static 'favicons/favicon-create.png' %}">
+{% endblock favicon %}
+
+{% block form_title %}Crear Usuario{% endblock form_title %}
+{% block form_subtitle %}Registra un nuevo usuario en la plataforma.{% endblock form_subtitle %}
+{% block btn_submit_text %}Crear Usuario{% endblock btn_submit_text %}

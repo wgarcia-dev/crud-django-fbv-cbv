@@ -1,0 +1,12 @@
+{% extends 'products/base/base_crud.html' %}
+{% load static %}
+
+{% block title_pag %}Nuevo Producto{% endblock title_pag %}
+
+{% block favicon %}
+    <link rel="icon" href="{% static 'favicons/favicon-create.png' %}">
+{% endblock favicon %}
+
+{% block form_title %}Crear Nuevo Producto{% endblock form_title %}
+{% block form_subtitle %}Llena la información requerida para dar de alta un nuevo elemento.{% endblock form_subtitle %}
+{% block btn_submit_text %}Crear Producto{% endblock btn_submit_text %}

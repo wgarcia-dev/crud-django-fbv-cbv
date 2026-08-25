@@ -1,0 +1,119 @@
+:root {
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-light: #eff6ff;
+
+    --secondary: #64748b;
+    --secondary-hover: #475569;
+    --secondary-light: #f8fafc;
+
+    --success: #10b981;
+    --success-hover: #059669;
+    --success-light: #ecfdf5;
+
+    --warning: #f59e0b;
+    --warning-hover: #d97706;
+    --warning-light: #fffbeb;
+
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+    --danger-light: #fef2f2;
+
+    --info: #06b6d4;
+    --info-hover: #0891b2;
+    --info-light: #ecfeff;
+
+    --dark: #0f172a;
+    --dark-hover: #1e293b;
+
+    --transition: all 350ms ease;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    padding: 8px 14px;
+    border-radius: 9px;
+    transition: var(--transition);
+
+    background: var(--btn-bg);
+    color: var(--btn-color);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+    user-select: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.btn:hover {
+    background: var(--btn-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.btn-primary {
+    --btn-bg: var(--primary);
+    --btn-hover: var(--primary-hover);
+    --btn-color: var(--primary-light);
+}
+
+.btn-secondary {
+    --btn-bg: var(--secondary);
+    --btn-hover: var(--secondary-hover);
+    --btn-color: var(--secondary-light);
+}
+
+.btn-success {
+    --btn-bg: var(--success);
+    --btn-hover: var(--success-hover);
+    --btn-color: var(--success-light);
+}
+
+.btn-warning {
+    --btn-bg: var(--warning);
+    --btn-hover: var(--warning-hover);
+    --btn-color: var(--warning-light);
+}
+
+.btn-danger {
+    --btn-bg: var(--danger);
+    --btn-hover: var(--danger-hover);
+    --btn-color: var(--danger-light);
+}
+
+.btn-info {
+    --btn-bg: var(--info);
+    --btn-hover: var(--info-hover);
+    --btn-color: var(--info-light);
+}

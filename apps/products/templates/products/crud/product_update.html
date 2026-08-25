@@ -1,0 +1,12 @@
+{% extends 'products/base/base_crud.html' %}
+{% load static %}
+
+{% block title_pag %}Editar {{ product.name }}{% endblock title_pag %}
+
+{% block favicon %}
+    <link rel="icon" href="{% static 'favicons/favicon-update.png' %}">
+{% endblock favicon %}
+
+{% block form_title %}Editar Producto{% endblock form_title %}
+{% block form_subtitle %}Actualiza la información del producto "{{ product.name }}".{% endblock form_subtitle %}
+{% block btn_submit_text %}Guardar Cambios{% endblock btn_submit_text %}

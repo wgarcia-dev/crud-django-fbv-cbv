@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_pag %}Eliminar Usuario{% endblock title_pag %}
+
+{% block favicon %}
+    <link rel="icon" href="{% static 'favicons/favicon-delete.png' %}">
+{% endblock favicon %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/crud/delete.css' %}">
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="delete-container">
+    <div class="delete-card">
+        <header class="delete-header">
+            <h2>¿Eliminar Usuario?</h2>
+            <p>Esta acción removerá el acceso al sistema.</p>
+        </header>
+
+        <div class="delete-info">
+            <p>¿Confirmas la eliminación permanente de <strong>@{{ object.username }}</strong> ({{ object.email|default:"Sin email" }})?</p>
+        </div>
+
+        <form method="post" class="delete-actions">
+            {% csrf_token %}
+            <a href="{% url 'users:user_list' %}" class="btn btn-secondary">Cancelar</a>
+            <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

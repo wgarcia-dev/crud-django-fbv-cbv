@@ -1,0 +1,43 @@
+/* Global CRUD delete confirmation - extracted from apps/products & apps/users */
+.delete-container {
+    width: min(480px, 95%);
+    margin: 4rem auto;
+}
+
+.delete-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #fee2e2;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.08);
+    text-align: center;
+}
+
+.delete-header h2 {
+    color: var(--danger);
+    margin-bottom: 0.5rem;
+}
+
+.delete-header p {
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
+
+.delete-info {
+    margin: 1.5rem 0 2rem;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.delete-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.delete-actions .btn {
+    border: 0;
+    appearance: none;
+    -webkit-appearance: none;
+}

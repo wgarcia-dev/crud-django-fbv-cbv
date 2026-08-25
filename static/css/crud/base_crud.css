@@ -1,0 +1,111 @@
+/* Global CRUD form styles - extracted from apps/products & apps/users */
+.form-container {
+    width: min(600px, 95%);
+    margin: 3rem auto;
+}
+
+.form-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-header h2 {
+    color: var(--dark);
+    margin-bottom: 0.4rem;
+}
+
+.form-header p {
+    color: var(--secondary);
+    font-size: 0.95rem;
+}
+
+.crud-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 0.9rem;
+}
+
+.form-control, .form-control-file {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background: #fff;
+    color: var(--dark);
+    width: 100%;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+/* File input - elimina borde gris nativo del botón interno */
+.form-control-file {
+    padding: 0;
+    overflow: hidden;
+}
+
+.form-control-file::file-selector-button,
+.form-control-file::-webkit-file-upload-button {
+    border: 0;
+    border-right: 1px solid #cbd5e1;
+    background: var(--secondary-light);
+    color: var(--secondary);
+    padding: 0.6rem 0.9rem;
+    margin-right: 0.8rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.form-control-file::file-selector-button:hover,
+.form-control-file::-webkit-file-upload-button:hover {
+    background: #e2e8f0;
+    color: var(--dark);
+}
+
+.form-error {
+    color: var(--danger);
+    font-size: 0.85rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-actions .btn,
+.delete-actions .btn {
+    border: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: 0;
+}

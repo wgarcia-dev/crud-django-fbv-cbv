@@ -1,0 +1,25 @@
+/* Global shared detail styles - extracted from product_detail.css & user_detail.css */
+.detail-container {
+    width: min(850px, 95%);
+    margin: 3rem auto;
+}
+
+/* Variante más angosta para perfiles */
+.detail-container--narrow {
+    width: min(650px, 95%);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    color: var(--primary);
+}

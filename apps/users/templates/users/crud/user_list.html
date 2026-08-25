@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_pag %}Listado de Usuarios{% endblock title_pag %}
+
+{% block favicon %}
+    <link rel="icon" href="{% static 'favicons/favicon-list.webp' %}">
+{% endblock favicon %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/crud/list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/includes/paginator.css' %}">
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="list-container">
+    <header class="list-header">
+        <h1>Gestión de Usuarios (CBV)</h1>
+        <div class="actions">
+            <a href="{% url 'products:product_list' %}" class="btn btn-secondary">📦 Ver Productos</a>
+            <a href="{% url 'users:user_create' %}" class="btn btn-primary">+ Nuevo Usuario</a>
+        </div>
+    </header>
+
+    <div class="table-responsive">
+        <table class="users-table crud-table">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Usuario</th>
+                    <th>Nombre Completo</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in users %}
+                    <tr>
+                        <td class="avatar-cell">
+                            {% if item.photo %}
+                                <img src="{{ item.photo.url }}" alt="{{ item.username }}" class="user-avatar">
+                            {% else %}
+                                <div class="avatar-placeholder">{{ item.username|first|upper }}</div>
+                            {% endif %}
+                        </td>
+                        <td class="username-cell">@{{ item.username }}</td>
+                        <td>{{ item.get_full_name|default:"-" }}</td>
+                        <td>{{ item.email|default:"-" }}</td>
+                        <td class="actions-cell">
+                            <div class="actions">
+                                <a href="{{ item.get_detail_url }}" class="btn btn-info">Ver</a>
+                                <a href="{{ item.get_update_url }}" class="btn btn-warning">Editar</a>
+                                <a href="{{ item.get_delete_url }}" class="btn btn-danger">Eliminar</a>
+                            </div>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5" class="empty-msg">No hay usuarios registrados actualmente.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% include "includes/paginator.html" %}
+</div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title_pag %}{% endblock title_pag %}</title>
+        {% block favicon %}{% endblock favicon %}
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% block extra_styles %}{% endblock extra_styles %}
+        {% block scripts %}{% endblock scripts %}
+    </head>
+    <body>
+        {% block content %}{% endblock content %}
+    </body>
+</html>

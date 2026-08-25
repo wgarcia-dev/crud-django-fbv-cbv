@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_pag %}Página de inicio | Práctica Django{% endblock title_pag %}
+
+{% block favicon %}
+    <link rel="icon" href="{% static 'core/favicons/favicon-index.png' %}">
+{% endblock favicon %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+{% endblock extra_styles %}
+
+{% block content %}
+    <main class="home">
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    Entorno de Práctica Django
+                </span>
+
+                <h1 class="hero-title">
+                    Dos CRUD para practicar
+                    <span>en un solo lugar.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Aprende a crear tus propios CRUDs comparando la lógica explícita de las
+                    <strong><abbr title="Function Based Views">FBV</abbr></strong> con la abstracción y reusabilidad de las
+                    <strong><abbr title="Class Based Views">CBV</abbr></strong>.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="{% url 'products:product_list' %}" class="btn btn-primary">
+                        <span>CRUD FBV</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </a>
+
+                    <a href="{% url 'users:user_list' %}" class="btn btn-secondary">
+                        <span>CRUD CBV</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="modules-grid">
+            <article class="module-card">
+                <div class="card-header">
+                    <span class="badge badge-fbv">FBV</span>
+                    <h3>Gestión de Productos</h3>
+                </div>
+                <p class="card-description">
+                    Implementación mediante funciones de Python. Ideal para comprender el flujo directo de peticiones HTTP (`GET`, `POST`), validaciones explícitas y decoradores.
+                </p>
+                <ul class="card-features">
+                    <li>Evaluación condicional de `request.method`</li>
+                    <li>Manejo manual de formularios e instancias</li>
+                </ul>
+                <a href="{% url 'products:product_list' %}" class="btn btn-primary card-btn">
+                    Ir a Productos
+                </a>
+            </article>
+
+            <article class="module-card">
+                <div class="card-header">
+                    <span class="badge badge-cbv">CBV</span>
+                    <h3>Gestión de Usuarios</h3>
+                </div>
+                <p class="card-description">
+                    Implementación orientada a objetos basada en las vistas genéricas de Django (`ListView`, `CreateView`, `UpdateView`, `DeleteView`).
+                </p>
+                <ul class="card-features">
+                    <li>Asignación de `model`, `form_class` y `template_name`</li>
+                    <li>Redirecciones automatizadas mediante `success_url`</li>
+                </ul>
+                <a href="{% url 'users:user_list' %}" class="btn btn-secondary card-btn">
+                    Ir a Usuarios
+                </a>
+            </article>
+        </section>
+    </main>
+{% endblock content %}

@@ -1,0 +1,116 @@
+# 1. ENTORNOS VIRTUALES Y PAQUETERÍA (Python & UV)
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.uv/
+
+# 2. EDITOR E IDES (VS Code, JetBrains/PyCharm, Vim, Eclipse)
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# PyCharm / JetBrains
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Vim & Otros editores
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# 3. DJANGO & DATOS LOCALES
+# Base de datos local
+db.sqlite3
+db.sqlite3-journal
+*.sqlite3
+
+# Archivos multimedia subidos por usuarios
+media/
+!media/.gitkeep
+
+# Archivos estáticos recopilados (collectstatic)
+staticfiles/
+static_root/
+
+# Variables de entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Logs / Registros del servidor
+*.log
+local_settings.py
+
+# 4. COMPILACIÓN Y CACHÉ DE PYTHON
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 5. TESTING, LINTING Y COBERTURA
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+
+# 6. ARCHIVOS DEL SISTEMA OPERATIVO
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.stackdump
+
+# Linux
+.directory
